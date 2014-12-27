@@ -29,7 +29,7 @@ Lots of training courses and tutorials kind of gloss over routes, and they seem 
 The most important (and simplest) route in your file is the root url... where should users be deposited when they land on `http://supercutekittenphotos.com`?  Just tell Rails which controller and action to map that route to, and it is so:
 
 ```language-ruby
-    root :to => "kittens#index"  #kittens controller, index action (method)
+    root :to => "kittens\#index"  #kittens controller, index action (method)
 ```
 
 *Remember, when we say "action" we really mean "the method inside the controller that is called that", e.g. the `index` action is just the `index` method that's defined in the KittensController*
@@ -51,13 +51,13 @@ If you recall our earlier discussion about REST, there are basically seven main 
 Each of these represents a "RESTful" route, and so it makes sense that you'll need a way to write these in your Router file so the requests they represent are actually routed to the proper action of your controller (in this case, the "Posts" controller).  One way to write them out would be the long way:
 
 ```language-ruby
-get "/posts" => "posts#index"
-get "/posts/:id" => "posts#show"
-get "/posts/new" => "posts#new"
-post "/posts" => "posts#create"  # usually a submitted form
-get "/posts/:id/edit" => "posts#edit"
-put "/posts/:id" => "posts#update" # usually a submitted form
-delete "/posts/:id" => "posts#destroy"
+get "/posts" => "posts\#index"
+get "/posts/:id" => "posts\#show"
+get "/posts/new" => "posts\#new"
+post "/posts" => "posts\#create"  # usually a submitted form
+get "/posts/:id/edit" => "posts\#edit"
+put "/posts/:id" => "posts\#update" # usually a submitted form
+delete "/posts/:id" => "posts\#destroy"
 ```
 
 Each of these routes is basically a Ruby method that matches that particular URL and HTTP verb with the correct controller action.  Two things to notice:
@@ -90,7 +90,7 @@ That's it.  That is a Ruby method which basically just outputs those seven route
 With that above line in my routes file, what do my routes look like?  If you type `$ rake routes` on the command line, it'll output all the routes your application knows, which look like:
 
 ```language-ruby
-    edit_post  GET  /posts/:id(.:format)  posts#edit
+    edit_post  GET  /posts/:id(.:format)  posts\#edit
 ```
 
 You can see the incoming HTTP verb and URL in the middle columns, then the controller action they map to on the right, which should all be quite familiar because you just wrote it in the routes file.  The `(.:format)` just means that it's okay but not required to specify a file extension like `.doc` at the end of the route... it will just get saved in the `params` hash for later anyway.  But what's on the leftmost column?  That's the "name" of the route.
@@ -178,7 +178,7 @@ Sometimes you just don't want all seven of the RESTful routes that `resources` p
 Of course, you don't have to do everything the RESTful way.  You probably should, but there are times that you want to make up your own route and map it to your own controller action.  Just follow the examples we gave at the top for RESTful routes:
 
 ```language-ruby
-    get '/somepath' => 'somecontroller#someaction'
+    get '/somepath' => 'somecontroller\#someaction'
 ```
 
 ... of course, the `config/routes.rb` comments should be helpful to you here as well.
