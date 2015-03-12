@@ -143,6 +143,7 @@ You learned about the Enumerable module that gets mixed in to the Array and Hash
 * [JrodManU's solution](https://github.com/JrodManU/enumerable-methods)
 * [poctek's solution](https://github.com/poctek/My_Enumerable/blob/master/My_Enumerable.rb)
 * [Greg Park's solution](https://github.com/gregoryjpark/ruby_building_blocks/blob/master/enum_dups.rb)
+* [Sam Padrul's solution](https://github.com/sampadrul/Ruby-Projects/blob/master/enumerables.rb)
 * Add your solution above this line!
 
 
